@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { router } from "expo-router";
-
+import { Colors } from "../constants/Colors";
 export default function Index() {
   const handleLogin = () => {
-    router.push("/(tabs)/home"); // Navega para a TabBar começando na Home
+    router.push("/(tabs)/home");
   };
 
   return (
@@ -21,7 +21,10 @@ export default function Index() {
         <Pressable style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Entrar</Text>
         </Pressable>
-        <Pressable style={styles.buttonOutline}>
+        <Pressable
+          style={styles.buttonOutline}
+          onPress={() => router.push("/signUp")}
+        >
           <Text style={styles.buttonTextOutline}>Cadastra-se</Text>
         </Pressable>
       </View>
@@ -49,13 +52,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 55,
     fontWeight: "bold",
-    color: "#052224",
+    color: Colors.carabianGreen,
     marginBottom: 5,
+
     // fontFamily: "Poppins",
   },
   subtitle: {
     fontSize: 14,
-    color: "#0E3E3E",
+    color: Colors.Cyprus,
     marginBottom: 40,
   },
   buttonsContainer: {
@@ -85,9 +89,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   forgot: {
-    color: "#0068FF",
+    color: Colors.void,
     marginTop: 10,
     textDecorationLine: "underline",
-    justifyContent: "flex-end",
   },
 });

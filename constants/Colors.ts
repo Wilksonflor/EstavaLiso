@@ -23,4 +23,13 @@ export const Colors = {
     tabIconDefault: "#9BA1A6",
     // tabIconSelected: tintColorDark,
   },
+  honeydew: "#F1FFF3",
+  lightGreen: "#DFF7E2",
+  oceanBlue: "#0068FF",
+  vividBlue: "#3299FF",
+  lightBlue: "#6DB6FE",
+  carabianGreen: "#00D09E",
+  fenceGreen: "#052224",
+  void: "#031314",
+  Cyprus: "#0E3E3E",
 };
