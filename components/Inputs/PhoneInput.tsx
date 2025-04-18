@@ -21,7 +21,7 @@ export default function PhoneInput({
       <MaskedTextInput
         mask="(99) 99999-9999"
         value={value}
-        onChangeText={(masked, unmasked) => onChangeText(masked)}
+        onChangeText={(masked, unmasked) => onChangeText(masked, unmasked)}
         keyboardType="numeric"
         style={styles.input}
         placeholder="(00) 00000-0000"
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_500Medium",
     marginBottom: 4,
     color: Colors.fenceGreen,
+    fontWeight: "bold",
   },
   input: {
     backgroundColor: Colors.lightGreen,
@@ -51,7 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Poppins_400Regular",
     borderWidth: 1,
-
     color: Colors.fenceGreen,
   },
 });

@@ -7,14 +7,17 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { useState } from "react";
 import { Colors } from "@/constants/Colors";
 import DateInput from "@/components/Inputs/DateInput";
+import { useAuth } from "@/context/AuthContext";
 
 export default function SignUp() {
+  const { signUp } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
   const [errors, setErrors] = useState({
     name: "",
@@ -43,10 +46,16 @@ export default function SignUp() {
     return Object.values(newErrors).every((err) => err === "");
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (validateForm()) {
-      console.log(" Registrou com sucesso!");
-      //  Colocar a lógica para registro
+      try {
+        await signUp({ name, email }, password);
+        console.log("Usuário cadastrado com sucesso!");
+        router.push("/");
+      } catch (err: any) {
+        console.error("Erro ao cadastrar usuário:", err.message);
+        setError(err.message);
+      }
     }
   };
 
@@ -56,6 +65,7 @@ export default function SignUp() {
         title="Crie sua conta"
         onBackPress={() => router.back()}
       />
+      {error ? <Text style={styles.error}>{error}</Text> : null}
 
       <ScrollView contentContainerStyle={styles.form}>
         <Input

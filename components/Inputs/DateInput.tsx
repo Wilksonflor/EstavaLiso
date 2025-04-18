@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_500Medium",
     marginBottom: 4,
     color: Colors.fenceGreen,
+    fontWeight: "bold",
   },
   input: {
     backgroundColor: Colors.lightGreen,
